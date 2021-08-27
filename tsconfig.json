@@ -102,7 +102,9 @@
     ".prettierrc.js",
     "babel.config.js",
     "index.js",
+    "jest.config.js",
     "metro.config.js",
-    "src"
+    "src",
+    "__tests__"
   ]
 }
