@@ -1,0 +1,28 @@
+{
+    // Editor:start
+    "editor.wordWrap": "on",
+    "editor.tabSize": 2,
+    "editor.defaultFormatter": "esbenp.prettier-vscode",
+    "editor.formatOnSave": false, // Let prettier format on save instead.
+    "editor.codeActionsOnSave": {
+        "source.fixAll.eslint": true
+    },
+    "emmet.triggerExpansionOnTab": true,
+    // Editor:end
+
+    // JavaScript:start
+    "javascript.validate.enable": false,
+    "emmet.includeLanguages": {
+        "javascript": "javascriptreact"
+    },
+    "[javascript]": {
+        "editor.defaultFormatter": "esbenp.prettier-vscode",
+        "editor.formatOnSave": false, // Let prettier format on save instead.
+        "editor.formatOnPaste": false
+    },
+
+    // ES Lint
+    "eslint.alwaysShowStatus": true,
+    "typescript.tsdk": "node_modules/typescript/lib",
+    // JavaScript:end
+}

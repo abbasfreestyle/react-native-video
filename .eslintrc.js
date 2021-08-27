@@ -3,13 +3,26 @@ module.exports = {
   extends: [
     '@react-native-community',
     'prettier',
-    'prettier/react',
-    'prettier/@typescript-eslint',
+    'plugin:@typescript-eslint/recommended',
   ],
   plugins: [
-    "react",
-    "react-native",
-    "prettier",
-    // "simple-import-sort",
+    'react',
+    'react-native',
+    'prettier',
+    '@typescript-eslint',
+    // 'simple-import-sort',
   ],
+  parser: '@typescript-eslint/parser',
+  parserOptions: {
+    project: './tsconfig.json',
+  },
+  rules: {
+    'prettier/prettier': [
+      'error',
+      {
+        singleQuote: true,
+        trailingComma: 'all',
+      },
+    ],
+  },
 };
