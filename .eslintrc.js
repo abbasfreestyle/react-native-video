@@ -19,6 +19,7 @@ module.exports = {
     project: './tsconfig.json',
   },
   rules: {
+    '@typescript-eslint/explicit-module-boundary-types': 'off',
     'arrow-parens': 0,
     'prettier/prettier': [
       'error',
@@ -27,13 +28,14 @@ module.exports = {
         trailingComma: 'all',
       },
     ],
-    'no-unused-vars': 2,
-    'import/no-named-as-default': 0,
-    'no-console': 1,
     'import/first': 'error',
     'import/newline-after-import': 'error',
     'import/no-duplicates': 'error',
+    'import/no-named-as-default': 2,
+    'import/no-default-export': 2,
     'import/order': 'off',
+    'no-console': 1,
+    'no-unused-vars': 2,
     'react-native/no-inline-styles': 2,
     'react-native/no-unused-styles': 2,
     'simple-import-sort/imports': [

@@ -2,10 +2,10 @@ import React from 'react';
 
 import { render } from '@testing-library/react-native';
 
-import App from '../src/App';
+import { Home } from '../src/screens/Home';
 
 test('renders correctly', () => {
-  const { getByText } = render(<App />);
+  const { getByText } = render(<Home />);
   const stepOne = getByText('Step One');
   expect(stepOne).toBeTruthy();
 });
