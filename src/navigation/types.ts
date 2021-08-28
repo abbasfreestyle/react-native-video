@@ -4,6 +4,7 @@ export type RootStackParamList = {
   Home: undefined;
   'Scrolled View': undefined;
   'Tabbed Views': undefined;
+  Storybook: undefined;
 };
 
 export type RootTabsParamList = {

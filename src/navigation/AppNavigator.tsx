@@ -5,6 +5,7 @@ import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
 import { NavigationContainer } from '@react-navigation/native';
 import { createNativeStackNavigator } from '@react-navigation/native-stack';
 
+import { StorybookUI } from '../../storybook';
 import { Home, ScrolledView, TabOne, TabTwo } from '../screens';
 import { RootStackParamList, RootTabsParamList } from './types';
 
@@ -32,6 +33,7 @@ export const AppWithNavigator: FC = () => {
           <Stack.Screen name="Home" component={Home} />
           <Stack.Screen name="Scrolled View" component={ScrolledView} />
           <Stack.Screen name="Tabbed Views" component={TabbedViews} />
+          <Stack.Screen name="Storybook" component={StorybookUI} />
         </Stack.Navigator>
       </NavigationContainer>
     </SafeAreaView>

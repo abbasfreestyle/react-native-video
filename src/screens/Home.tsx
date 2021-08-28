@@ -18,6 +18,10 @@ export const Home: FC = () => {
         title="Tabbed View"
         onPress={() => navigation.navigate('Tabbed Views')}
       />
+      <Button
+        title="Storybook"
+        onPress={() => navigation.navigate('Storybook')}
+      />
     </>
   );
 };
