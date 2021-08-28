@@ -15,12 +15,20 @@ module.exports = {
   //   '@utils': '<rootDir>/src/utils',
   // },
   // modulePathIgnorePatterns: ['<rootDir>/e2e'],
-  // transformIgnorePatterns: [
-  //   'node_modules/(?!(react-native' +
-  //     '|@react-navigation/.*' +
-  //     '|react-native-iphone-x-helper' +
-  //     '|react-native-screens' +
-  //     '|react-navigation' +
-  //     ')/)',
-  // ],
+  transformIgnorePatterns: [
+    'node_modules/(?!(' +
+      'react-native' +
+      '|@react-native/.*' +
+      // '|@react-navigation/.*' +
+      // '|react-native-iphone-x-helper' +
+      // '|react-native-screens' +
+      '|react-native-swipe-gestures' +
+      '|react-native-modal-selector' +
+      '|react-native-modal-datetime-picker' +
+      '|react-native-modal' +
+      '|react-native-animatable' +
+      '|react-native-simple-markdown' +
+      // '|react-navigation' +
+      ')/)',
+  ],
 };

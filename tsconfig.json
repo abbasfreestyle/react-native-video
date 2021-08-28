@@ -106,6 +106,7 @@
     "metro.config.js",
     "src",
     "__tests__",
-    "storybook"
+    "storybook",
+    "__mocks__"
   ]
 }
