@@ -49,6 +49,7 @@ module.exports = {
         ],
       },
     ],
+    'simple-import-sort/exports': 'error',
     'sort-destructure-keys/sort-destructure-keys': [2, { caseSensitive: true }],
     'sort-imports': 'off',
   },

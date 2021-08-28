@@ -1,2 +1,4 @@
 export * from './Home';
-export * from './TabbedViewOne';
+export * from './ScrolledView';
+export * from './TabOne';
+export * from './TabTwo';

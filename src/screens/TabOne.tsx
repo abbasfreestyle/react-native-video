@@ -9,7 +9,7 @@ const styles = StyleSheet.create({
   },
 });
 
-export const TabbedViewOne: FC = () => {
+export const TabOne: FC = () => {
   return (
     <View style={styles.container}>
       <Text>Hello</Text>

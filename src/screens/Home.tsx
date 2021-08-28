@@ -1,5 +1,5 @@
 import React, { FC } from 'react';
-import { Button, SafeAreaView } from 'react-native';
+import { Button } from 'react-native';
 
 import { useNavigation } from '@react-navigation/native';
 
@@ -9,11 +9,15 @@ export const Home: FC = () => {
   const navigation = useNavigation<NavigationProps<'Home'>>();
 
   return (
-    <SafeAreaView>
+    <>
+      <Button
+        title="Scrolled View"
+        onPress={() => navigation.navigate('Scrolled View')}
+      />
       <Button
         title="Tabbed View"
         onPress={() => navigation.navigate('Tabbed Views')}
       />
-    </SafeAreaView>
+    </>
   );
 };
