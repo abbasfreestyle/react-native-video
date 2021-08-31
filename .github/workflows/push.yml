@@ -18,22 +18,23 @@ jobs:
           node-version: ${{matrix.node-version}}
 
   install_deps:
+    needs: [clone_repo]
     runs-on: ubuntu-latest
     name: Install Dependencies
-    needs: [clone_repo]
     steps:
       - name: Install Dependencies
         run: yarn
 
   type_checks:
+    needs: [clone_repo, install_deps]
     runs-on: ubuntu-latest
     name: Typescript checks
-    needs: [clone_repo, install_deps]
     steps:
       - name: Typescript checks
         run: yarn type
 
   jest_tests:
+    needs: [clone_repo, install_deps]
     runs-on: ubuntu-latest
     name: Jest tests
     steps:

@@ -11,7 +11,7 @@
     "start": "react-native start",
     "storybook": "rnstl",
     "test": "jest",
-    "type": "yarn tsc"
+    "type": "tsc"
   },
   "dependencies": {
     "@react-native-community/async-storage": "^1.12.1",
