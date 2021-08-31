@@ -22,6 +22,7 @@ jobs:
     runs-on: ubuntu-latest
     name: Install Dependencies
     steps:
+      - uses: actions/checkout@v2
       - name: Install Dependencies
         run: yarn
 
@@ -30,6 +31,7 @@ jobs:
     runs-on: ubuntu-latest
     name: Typescript checks
     steps:
+      - uses: actions/checkout@v2
       - name: Typescript checks
         run: yarn type
 
@@ -38,5 +40,6 @@ jobs:
     runs-on: ubuntu-latest
     name: Jest tests
     steps:
+      - uses: actions/checkout@v2
       - name: Jest tests
         run: yarn test
