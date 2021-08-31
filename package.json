@@ -10,8 +10,8 @@
     "pod": "yarn && yarn pod:install",
     "start": "react-native start",
     "storybook": "rnstl",
-    "test": "jest",
-    "type": "tsc"
+    "test": "yarn jest",
+    "type": "yarn tsc"
   },
   "dependencies": {
     "@react-native-community/async-storage": "^1.12.1",

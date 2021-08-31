@@ -2,7 +2,7 @@ name: Push
 on: [push, pull_request]
 
 jobs:
-  clone_repo:
+  install_deps:
     runs-on: ubuntu-latest
 
     strategy:
@@ -17,29 +17,42 @@ jobs:
         with:
           node-version: ${{matrix.node-version}}
 
-  install_deps:
-    needs: [clone_repo]
-    runs-on: ubuntu-latest
-    name: Install Dependencies
-    steps:
-      - uses: actions/checkout@v2
+      - name: Cache node_modules
+        id: cache-node-modules
+        uses: actions/cache@v2
+        with:
+          path: node_modules
+          key: node-modules-${{ hashFiles('yarn.lock') }}
+
       - name: Install Dependencies
         run: yarn
 
   type_checks:
-    needs: [clone_repo, install_deps]
+    needs: [install_deps]
     runs-on: ubuntu-latest
     name: Typescript checks
     steps:
       - uses: actions/checkout@v2
+      - name: Restore node_modules
+        id: cache-node-modules
+        uses: actions/cache@v2
+        with:
+          path: node_modules
+          key: node-modules-${{ hashFiles('yarn.lock') }}
       - name: Typescript checks
         run: yarn type
 
   jest_tests:
-    needs: [clone_repo, install_deps]
+    needs: [install_deps]
     runs-on: ubuntu-latest
     name: Jest tests
     steps:
       - uses: actions/checkout@v2
+      - name: Restore node_modules
+        id: cache-node-modules
+        uses: actions/cache@v2
+        with:
+          path: node_modules
+          key: node-modules-${{ hashFiles('yarn.lock') }}
       - name: Jest tests
         run: yarn test
