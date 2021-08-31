@@ -1,0 +1,41 @@
+name: Push
+on: [push, pull_request]
+
+jobs:
+  clone_repo:
+    runs-on: ubuntu-latest
+
+    strategy:
+      matrix:
+        node-version: [12.17.0]
+
+    steps:
+      - uses: actions/checkout@v2
+
+      - name: Use Node.js ${{matrix.node-version}}
+        uses: actions/setup-node@v1
+        with:
+          node-version: ${{matrix.node-version}}
+
+  install_deps:
+    runs-on: ubuntu-latest
+    name: Install Dependencies
+    needs: [clone_repo]
+    steps:
+      - name: Install Dependencies
+        run: yarn
+
+  type_checks:
+    runs-on: ubuntu-latest
+    name: Typescript checks
+    needs: [clone_repo, install_deps]
+    steps:
+      - name: Typescript checks
+        run: yarn type
+
+  jest_tests:
+    runs-on: ubuntu-latest
+    name: Jest tests
+    steps:
+      - name: Jest tests
+        run: yarn test
