@@ -2,6 +2,7 @@ module.exports = {
   preset: 'react-native',
   moduleFileExtensions: ['ts', 'tsx', 'js', 'jsx', 'json', 'node'],
   verbose: true,
+  setupFiles: ['<rootDir>/.jest/setup.ts'],
   // setupFilesAfterEnv: ['./setup/jest.js'],
   // moduleNameMapper: {
   //   '@api': '<rootDir>/src/api',
@@ -16,19 +17,9 @@ module.exports = {
   // },
   // modulePathIgnorePatterns: ['<rootDir>/e2e'],
   transformIgnorePatterns: [
-    'node_modules/(?!(' +
-      'react-native' +
-      '|@react-native/.*' +
-      // '|@react-navigation/.*' +
-      // '|react-native-iphone-x-helper' +
-      // '|react-native-screens' +
-      '|react-native-swipe-gestures' +
-      '|react-native-modal-selector' +
-      '|react-native-modal-datetime-picker' +
-      '|react-native-modal' +
-      '|react-native-animatable' +
-      '|react-native-simple-markdown' +
-      // '|react-navigation' +
-      ')/)',
+    'node_modules/(?!(jest-)?' +
+      '@?react-native' +
+      '|@react-native-community' +
+      '|@react-navigation)',
   ],
 };
