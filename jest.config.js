@@ -11,6 +11,12 @@ module.exports = {
       '|@react-native-community' +
       '|@react-navigation)',
   ],
+  coveragePathIgnorePatterns: [
+    'index.js',
+    'index.ts',
+    'types.ts',
+    'rn-addons.ts',
+  ],
   coverageThreshold: {
     global: {
       branches: 80,
