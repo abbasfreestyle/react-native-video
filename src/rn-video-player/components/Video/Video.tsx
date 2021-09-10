@@ -27,7 +27,8 @@ export const Video: FC = () => {
         },
       }) => {
         setHeight(width * 0.5625);
-      }}>
+      }}
+    >
       <VideoPlayer
         paused={true}
         source={{ uri: url }}

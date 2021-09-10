@@ -19,7 +19,8 @@ const Tabs = createBottomTabNavigator<RootTabsParamList>();
 const TabbedViews = () => (
   <Tabs.Navigator
     screenOptions={{ header: () => null, tabBarIcon: () => null }}
-    initialRouteName="Tab One">
+    initialRouteName="Tab One"
+  >
     <Tabs.Screen name="Tab One" component={TabOne} />
     <Tabs.Screen name="Tab Two" component={TabTwo} />
   </Tabs.Navigator>
