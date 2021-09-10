@@ -16,6 +16,4 @@ configure(() => {
   loadStories();
 }, module);
 
-export const StorybookUI = getStorybookUI({
-  asyncStorage: AsyncStorage,
-});
+export const StorybookUI = getStorybookUI({ asyncStorage: AsyncStorage });
