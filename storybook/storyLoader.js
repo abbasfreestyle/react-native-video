@@ -4,10 +4,12 @@
 // https://github.com/elderfo/react-native-storybook-loader.git
 
 function loadStories() {
-  require('../src/rn-video-player/components/Play/Play.stories');
+  require('../src/@abbas/react-native-video/components/Play/Play.stories');
 }
 
-const stories = ['../src/rn-video-player/components/Play/Play.stories'];
+const stories = [
+  '../src/@abbas/react-native-video/components/Play/Play.stories',
+];
 
 module.exports = {
   loadStories,
