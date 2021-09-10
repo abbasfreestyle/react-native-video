@@ -1,4 +1,4 @@
-import React, { FC, useState } from 'react';
+import React, { useState } from 'react';
 import { StyleSheet, View } from 'react-native';
 
 import VideoPlayer from 'react-native-video';
@@ -15,7 +15,7 @@ const styles = StyleSheet.create({
 const url =
   'https://commondatastorage.googleapis.com/gtv-videos-bucket/sample/WhatCarCanYouGetForAGrand.mp4';
 
-export const Video: FC = () => {
+export const Video = () => {
   const [height, setHeight] = useState(0);
 
   return (
