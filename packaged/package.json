@@ -1,0 +1,20 @@
+{
+  "name": "@abbasfarid/react-native-video",
+  "version": "0.0.1",
+  "private": false,
+  "description": "React Native Video Player",
+  "main": "dist/index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "publishConfig": {
+    "access": "public"
+  },
+  "author": "Abbas Farid",
+  "license": "MIT",
+  "devDependencies": {
+    "@types/react": "^17.0.20",
+    "@types/react-native": "^0.65.0",
+    "typescript": "^4.4.3"
+  }
+}
