@@ -27,7 +27,22 @@ jobs:
       - name: Install Dependencies
         run: yarn
 
-  type_checks:
+  lint:
+    needs: [install_deps]
+    runs-on: ubuntu-latest
+    name: Lint checks
+    steps:
+      - uses: actions/checkout@v2
+      - name: Restore node_modules
+        id: cache-node-modules
+        uses: actions/cache@v2
+        with:
+          path: node_modules
+          key: node-modules-${{ hashFiles('yarn.lock') }}
+      - name: Lint checks
+        run: yarn lint
+
+  type:
     needs: [install_deps]
     runs-on: ubuntu-latest
     name: Typescript checks
@@ -42,7 +57,7 @@ jobs:
       - name: Typescript checks
         run: yarn type
 
-  jest_tests:
+  tests:
     needs: [install_deps]
     runs-on: ubuntu-latest
     name: Jest tests
