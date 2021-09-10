@@ -107,5 +107,6 @@
     "src",
     "storybook",
     "__mocks__"
-  ]
+  ],
+  "exclude": ["dist"]
 }
