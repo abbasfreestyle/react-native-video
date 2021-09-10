@@ -8,7 +8,6 @@ module.exports = {
   plugins: [
     'react',
     'react-native',
-    'prettier',
     'import',
     '@typescript-eslint',
     'simple-import-sort',
@@ -21,13 +20,6 @@ module.exports = {
   rules: {
     '@typescript-eslint/explicit-module-boundary-types': 'off',
     'arrow-parens': 0,
-    'prettier/prettier': [
-      'error',
-      {
-        singleQuote: true,
-        trailingComma: 'all',
-      },
-    ],
     'import/first': 'error',
     'import/newline-after-import': 'error',
     'import/no-duplicates': 'error',

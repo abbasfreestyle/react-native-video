@@ -3,7 +3,7 @@
     "editor.wordWrap": "on",
     "editor.tabSize": 2,
     "editor.defaultFormatter": "esbenp.prettier-vscode",
-    "editor.formatOnSave": false, // Let prettier format on save instead.
+    "editor.formatOnSave": true,
     "editor.codeActionsOnSave": {
         "source.fixAll.eslint": true
     },
@@ -17,7 +17,7 @@
     },
     "[javascript]": {
         "editor.defaultFormatter": "esbenp.prettier-vscode",
-        "editor.formatOnSave": false, // Let prettier format on save instead.
+        "editor.formatOnSave": true,
         "editor.formatOnPaste": false
     },
 
