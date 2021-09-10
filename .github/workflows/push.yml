@@ -86,3 +86,18 @@ jobs:
           key: node-modules-${{ hashFiles('yarn.lock') }}
       - name: Jest
         run: yarn test
+
+  tests-coverage:
+    needs: [install]
+    runs-on: ubuntu-latest
+    name: Test Coverage
+    steps:
+      - uses: actions/checkout@v2
+      - name: Restore node_modules
+        id: cache-node-modules
+        uses: actions/cache@v2
+        with:
+          path: node_modules
+          key: node-modules-${{ hashFiles('yarn.lock') }}
+      - name: Test Coverage
+        run: yarn test --coverage
