@@ -4,6 +4,11 @@
   "private": true,
   "scripts": {
     "android": "react-native run-android",
+    "clean:ios:cache": "watchman watch-del-all && rm -rf $TMPDIR/react-native-packager-cache-* && rm -rf $TMPDIR/metro-bundler-cache-* && rm -rf node_modules/ && yarn cache clean && yarn",
+    "clean:ios:derived-data": "rm -rf ios/build && rm -rf ~/Library/Developer/Xcode/DerivedData",
+    "clean:ios": "yarn clean:ios:cache && yarn clean:ios:derived-data",
+    "clean:packager": "yarn start -- --reset-cache",
+    "clean": "yarn clean:android && yarn clean:ios",
     "ios": "react-native run-ios",
     "lint": "eslint .",
     "pod:install": "cd ios && pod install",
@@ -22,7 +27,7 @@
     "react-native": "0.65.1",
     "react-native-keep-awake": "^4.0.0",
     "react-native-orientation": "^3.1.3",
-    "react-native-reanimated": "^2.3.0-alpha.2",
+    "react-native-reanimated": "^2.3.0-alpha.3",
     "react-native-safe-area-context": "^3.3.0",
     "react-native-screens": "^3.6.0",
     "react-native-video": "^5.1.1"
@@ -30,11 +35,11 @@
   "devDependencies": {
     "@babel/core": "^7.12.9",
     "@babel/runtime": "^7.12.5",
-    "@react-native-community/eslint-config": "^2.0.0",
-    "@storybook/addon-knobs": "^6.3.0",
+    "@react-native-community/eslint-config": "^3.0.1",
+    "@storybook/addon-knobs": "^6.3.1",
     "@storybook/addon-ondevice-knobs": "^5.3.25",
     "@storybook/addon-ondevice-notes": "^5.3.23",
-    "@storybook/addon-storyshots": "^6.3.7",
+    "@storybook/addon-storyshots": "^6.3.8",
     "@storybook/addons": "^6.3.7",
     "@storybook/react-native": "^5.3.25",
     "@testing-library/jest-native": "^4.0.2",
@@ -69,8 +74,5 @@
       "pattern": "**/*.stories.{ts,tsx}",
       "outputFile": "./storybook/storyLoader.js"
     }
-  },
-  "jest": {
-    "preset": "react-native"
   }
 }
