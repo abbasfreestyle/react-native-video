@@ -1,11 +1,11 @@
-import React, { FC } from 'react';
+import React from 'react';
 import { Button } from 'react-native';
 
 import { useNavigation } from '@react-navigation/native';
 
-import { NavigationProps } from '../navigation/types';
+import { NavigationProps } from '../../navigation/types';
 
-export const Home: FC = () => {
+export const Home = () => {
   const navigation = useNavigation<NavigationProps<'Home'>>();
 
   return (

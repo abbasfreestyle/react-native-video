@@ -1,8 +1,8 @@
 name: Push
-on: [push, pull_request]
+on: [push]
 
 jobs:
-  install_deps:
+  install:
     runs-on: ubuntu-latest
 
     strategy:
@@ -27,10 +27,10 @@ jobs:
       - name: Install Dependencies
         run: yarn
 
-  type_checks:
-    needs: [install_deps]
+  lint:
+    needs: [install]
     runs-on: ubuntu-latest
-    name: Typescript checks
+    name: Lint
     steps:
       - uses: actions/checkout@v2
       - name: Restore node_modules
@@ -39,13 +39,28 @@ jobs:
         with:
           path: node_modules
           key: node-modules-${{ hashFiles('yarn.lock') }}
-      - name: Typescript checks
+      - name: Lint
+        run: yarn lint
+
+  type:
+    needs: [install]
+    runs-on: ubuntu-latest
+    name: Typescript
+    steps:
+      - uses: actions/checkout@v2
+      - name: Restore node_modules
+        id: cache-node-modules
+        uses: actions/cache@v2
+        with:
+          path: node_modules
+          key: node-modules-${{ hashFiles('yarn.lock') }}
+      - name: Typescript
         run: yarn type
 
-  jest_tests:
-    needs: [install_deps]
+  prettier:
+    needs: [install]
     runs-on: ubuntu-latest
-    name: Jest tests
+    name: Prettier
     steps:
       - uses: actions/checkout@v2
       - name: Restore node_modules
@@ -54,5 +69,35 @@ jobs:
         with:
           path: node_modules
           key: node-modules-${{ hashFiles('yarn.lock') }}
-      - name: Jest tests
+      - name: Prettier
+        run: yarn prettier:check
+
+  tests:
+    needs: [install]
+    runs-on: ubuntu-latest
+    name: Jest
+    steps:
+      - uses: actions/checkout@v2
+      - name: Restore node_modules
+        id: cache-node-modules
+        uses: actions/cache@v2
+        with:
+          path: node_modules
+          key: node-modules-${{ hashFiles('yarn.lock') }}
+      - name: Jest
         run: yarn test
+
+  tests-coverage:
+    needs: [install]
+    runs-on: ubuntu-latest
+    name: Test Coverage
+    steps:
+      - uses: actions/checkout@v2
+      - name: Restore node_modules
+        id: cache-node-modules
+        uses: actions/cache@v2
+        with:
+          path: node_modules
+          key: node-modules-${{ hashFiles('yarn.lock') }}
+      - name: Test Coverage
+        run: yarn test --coverage
