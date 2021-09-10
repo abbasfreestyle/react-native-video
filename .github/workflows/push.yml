@@ -2,7 +2,7 @@ name: Push
 on: [push, pull_request]
 
 jobs:
-  install_deps:
+  install:
     runs-on: ubuntu-latest
 
     strategy:
@@ -28,7 +28,7 @@ jobs:
         run: yarn
 
   lint:
-    needs: [install_deps]
+    needs: [install]
     runs-on: ubuntu-latest
     name: Lint checks
     steps:
@@ -43,7 +43,7 @@ jobs:
         run: yarn lint
 
   type:
-    needs: [install_deps]
+    needs: [install]
     runs-on: ubuntu-latest
     name: Typescript checks
     steps:
@@ -58,7 +58,7 @@ jobs:
         run: yarn type
 
   tests:
-    needs: [install_deps]
+    needs: [install]
     runs-on: ubuntu-latest
     name: Jest tests
     steps:
