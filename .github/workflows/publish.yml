@@ -21,13 +21,10 @@ jobs:
           node-version: ${{matrix.node-version}}
 
       - name: Head to packaged folder
-        run: cd packaged && pwd
-
-      - name: install Dependencies
-        run: yarn
-
-      - name: Create code for distribution
-        run: yarn build
+        run: |
+          cd packaged
+          yarn
+          yarn build
 
       # - name: Apply new version
       #   run: node ./scripts/set-version.js
