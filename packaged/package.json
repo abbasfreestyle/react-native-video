@@ -1,6 +1,6 @@
 {
   "name": "@abbasfarid/react-native-video",
-  "version": "0.0.1",
+  "version": "0.0.2",
   "private": false,
   "description": "React Native Video Player",
   "main": "dist/index.js",
