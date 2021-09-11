@@ -106,7 +106,8 @@
     "metro.config.js",
     "src",
     "storybook",
-    "__mocks__"
+    "__mocks__",
+    "commitlint.config.js"
   ],
   "exclude": ["dist"]
 }
