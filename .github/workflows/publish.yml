@@ -1,0 +1,49 @@
+name: Publish
+on:
+  push:
+    # branches:
+    #   - main
+
+jobs:
+  set-version:
+    runs-on: ubuntu-latest
+
+    strategy:
+      matrix:
+        node-version: [12.17.0]
+
+    steps:
+      - uses: actions/checkout@v2
+
+      - name: Use Node.js ${{matrix.node-version}}
+        uses: actions/setup-node@v1
+        with:
+          node-version: ${{matrix.node-version}}
+
+      - name: Head to packaged folder
+        run: cd packaged
+
+      - name: Create code for distribution
+        run: yarn tsc
+
+      # - name: Apply new version
+      #   run: node ./scripts/set-version.js
+
+      # - name: Commit and tag new version
+      # # git get last squashed commit
+      # # git tag the last commit
+      # # git commits new version and push [skip ci]
+      #   run: echo Hello
+
+      - name: Publish it
+        env:
+          NPM_TOKEN: ${{secrets.NPM_TOKEN}}
+        run: |
+          npm config set //registry.npmjs.org/:_authToken ${NPM_TOKEN}
+          npm publish --ignore-scripts
+
+# use commit messages for versioning
+# fix: patch
+# feat: minor
+# BREAKING CHANGE: major
+# docs, chore: no change
