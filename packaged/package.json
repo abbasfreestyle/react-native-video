@@ -6,6 +6,7 @@
   "main": "dist/index.js",
   "scripts": {
     "build": "yarn tsc",
+    "set:version": "standard-version",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "publishConfig": {
@@ -16,6 +17,7 @@
   "devDependencies": {
     "@types/react": "^17.0.20",
     "@types/react-native": "^0.65.0",
+    "standard-version": "^9.3.1",
     "typescript": "^4.4.3"
   }
 }
