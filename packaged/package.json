@@ -5,6 +5,7 @@
   "description": "React Native Video Player",
   "main": "dist/index.js",
   "scripts": {
+    "build": "yarn tsc",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "publishConfig": {

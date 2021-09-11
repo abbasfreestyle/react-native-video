@@ -24,10 +24,10 @@ jobs:
         run: yarn
 
       - name: Head to packaged folder
-        run: cd packaged
+        run: cd packaged && pwd
 
       - name: Create code for distribution
-        run: yarn tsc
+        run: yarn build
 
       # - name: Apply new version
       #   run: node ./scripts/set-version.js
