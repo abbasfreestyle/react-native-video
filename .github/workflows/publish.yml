@@ -20,11 +20,12 @@ jobs:
         with:
           node-version: ${{matrix.node-version}}
 
-      - name: Head to packaged folder
+      - name: Create code for distribution
         run: |
           cd packaged
           yarn
           yarn build
+        continue-on-error: true
 
       # - name: Apply new version
       #   run: node ./scripts/set-version.js
