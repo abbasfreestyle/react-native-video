@@ -21,15 +21,10 @@ jobs:
           node-version: ${{matrix.node-version}}
 
       - name: Create code for distribution
+        env:
+          NPM_TOKEN: ${{secrets.NPM_TOKEN}}
+          GH_TOKEN: ${{secrets.GH_TOKEN}}
         run: |
           yarn
           yarn tsc --project tsconfig.build.json
           yarn semantic-release
-
-      - name: Publish it
-        env:
-          NPM_TOKEN: ${{secrets.NPM_TOKEN}}
-        run: |
-          cd packaged
-          npm config set //registry.npmjs.org/:_authToken ${NPM_TOKEN}
-          npm publish --ignore-scripts
