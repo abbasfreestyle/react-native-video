@@ -22,19 +22,9 @@ jobs:
 
       - name: Create code for distribution
         run: |
-          cd packaged
           yarn
-          yarn build
-        continue-on-error: true
-
-      # - name: Apply new version
-      #   run: node ./scripts/set-version.js
-
-      # - name: Commit and tag new version
-      # # git get last squashed commit
-      # # git tag the last commit
-      # # git commits new version and push [skip ci]
-      #   run: echo Hello
+          yarn tsc --project tsconfig.build.json
+          yarn semantic-release
 
       - name: Publish it
         env:
@@ -43,9 +33,3 @@ jobs:
           cd packaged
           npm config set //registry.npmjs.org/:_authToken ${NPM_TOKEN}
           npm publish --ignore-scripts
-
-# use commit messages for versioning
-# fix: patch
-# feat: minor
-# BREAKING CHANGE: major
-# docs, chore: no change
