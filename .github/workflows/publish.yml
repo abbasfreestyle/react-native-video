@@ -1,0 +1,33 @@
+name: Publish
+on:
+  push:
+    branches:
+      - main
+
+jobs:
+  set-version:
+    runs-on: ubuntu-latest
+
+    strategy:
+      matrix:
+        node-version: [12.17.0]
+
+    steps:
+      - uses: actions/checkout@v2
+
+      - name: Use Node.js ${{matrix.node-version}}
+        uses: actions/setup-node@v1
+        with:
+          node-version: ${{matrix.node-version}}
+
+      - name: Install dependencies
+        run: yarn
+
+      - name: Create code for distribution
+        run: yarn tsc --project tsconfig.build.json
+
+      - name: Publish package
+        env:
+          NPM_TOKEN: ${{secrets.NPM_TOKEN}}
+          GH_TOKEN: ${{secrets.GH_TOKEN}}
+        run: yarn semantic-release

@@ -1,7 +1,18 @@
 {
-  "name": "videoplayer",
-  "version": "0.0.1",
-  "private": true,
+  "name": "@abbasfarid/react-native-video",
+  "version": "1.0.0",
+  "private": false,
+  "description": "React Native Video Player",
+  "author": "Abbas Farid",
+  "license": "MIT",
+  "main": "dist/index.js",
+  "publishConfig": {
+    "access": "public"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/abbasfreestyle/react-native-video.git"
+  },
   "scripts": {
     "android": "react-native run-android",
     "clean:ios:cache": "watchman watch-del-all && rm -rf $TMPDIR/react-native-packager-cache-* && rm -rf $TMPDIR/metro-bundler-cache-* && rm -rf node_modules/ && yarn cache clean && yarn",
@@ -19,26 +30,25 @@
     "storybook:serve": "start-storybook -p 7007",
     "storybook": "rnstl",
     "test": "yarn jest",
-    "type": "yarn tsc"
+    "type": "yarn tsc",
+    "semantic-release": "semantic-release"
   },
-  "dependencies": {
-    "@react-native-community/async-storage": "^1.12.1",
-    "@react-navigation/bottom-tabs": "^6.0.5",
-    "@react-navigation/native": "^6.0.2",
-    "@react-navigation/native-stack": "^6.1.0",
-    "react": "17.0.2",
-    "react-native": "0.65.1",
-    "react-native-keep-awake": "^4.0.0",
-    "react-native-orientation": "^3.1.3",
-    "react-native-reanimated": "^2.3.0-alpha.3",
-    "react-native-safe-area-context": "^3.3.0",
-    "react-native-screens": "^3.6.0",
-    "react-native-video": "^5.1.1"
+  "peerDependencies": {
+    "react-native-keep-awake": "^4.x.x",
+    "react-native-orientation": "^3.x.x",
+    "react-native-reanimated": "^2.x.x",
+    "react-native-video": "*"
   },
   "devDependencies": {
     "@babel/core": "^7.12.9",
     "@babel/runtime": "^7.12.5",
+    "@commitlint/cli": "^13.1.0",
+    "@commitlint/config-conventional": "^13.1.0",
+    "@react-native-community/async-storage": "^1.12.1",
     "@react-native-community/eslint-config": "^3.0.1",
+    "@react-navigation/bottom-tabs": "^6.0.5",
+    "@react-navigation/native": "^6.0.2",
+    "@react-navigation/native-stack": "^6.1.0",
     "@storybook/addon-actions": "^5.3",
     "@storybook/addon-knobs": "^5.3",
     "@storybook/addon-links": "^5.3",
@@ -63,13 +73,23 @@
     "eslint-plugin-import": "^2.24.2",
     "eslint-plugin-simple-import-sort": "^7.0.0",
     "eslint-plugin-sort-destructure-keys": "^1.3.5",
+    "husky": "^7.0.2",
     "jest": "^27.1.0",
     "metro-react-native-babel-preset": "^0.66.0",
     "prettier": "^2.4.0",
+    "react": "^17.0.2",
     "react-dom": "17.0.2",
+    "react-native": "^0.65.1",
     "react-native-codegen": "^0.0.7",
+    "react-native-keep-awake": "^4.0.0",
+    "react-native-orientation": "^3.1.3",
+    "react-native-reanimated": "^2.3.0-alpha.3",
+    "react-native-safe-area-context": "^3.3.0",
+    "react-native-screens": "^3.6.0",
     "react-native-storybook-loader": "^2.0.4",
+    "react-native-video": "^5.1.1",
     "react-test-renderer": "17.0.2",
+    "semantic-release": "^17.4.7",
     "typescript": "^4.4.2"
   },
   "config": {
