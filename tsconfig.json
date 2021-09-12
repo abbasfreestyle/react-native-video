@@ -98,16 +98,16 @@
     "skipLibCheck": true /* Skip type checking all .d.ts files. */
   },
   "include": [
+    "__mocks__",
     ".eslintrc.js",
     ".prettierrc.js",
     "babel.config.js",
+    "commitlint.config.js",
     "index.js",
     "jest.config.js",
     "metro.config.js",
+    "release.config.js",
     "src",
-    "storybook",
-    "__mocks__",
-    "commitlint.config.js"
-  ],
-  "exclude": ["dist"]
+    "storybook"
+  ]
 }

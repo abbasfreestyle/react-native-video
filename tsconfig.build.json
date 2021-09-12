@@ -27,9 +27,9 @@
 
     /* Modules */
     "module": "ES2020" /* Specify what module code is generated. */,
-    // "rootDir": "./",                                  /* Specify the root folder within your source files. */
-    // "moduleResolution": "node",                       /* Specify how TypeScript looks up a file from a given module specifier. */
-    // "baseUrl": "./",                                  /* Specify the base directory to resolve non-relative module names. */
+    "rootDir": "src/@abbasfarid/react-native-video" /* Specify the root folder within your source files. */,
+    "moduleResolution": "node" /* Specify how TypeScript looks up a file from a given module specifier. */,
+    // "baseUrl": "src/@abbasfarid/react-native-video" /* Specify the base directory to resolve non-relative module names. */,
     // "paths": {},                                      /* Specify a set of entries that re-map imports to additional lookup locations. */
     // "rootDirs": [],                                   /* Allow multiple folders to be treated as one when resolving modules. */
     // "typeRoots": [],                                  /* Specify multiple folders that act like `./node_modules/@types`. */
@@ -99,12 +99,6 @@
     // "skipDefaultLibCheck": true,                      /* Skip type checking .d.ts files that are included with TypeScript. */
     "skipLibCheck": true /* Skip type checking all .d.ts files. */
   },
-  "include": [
-    "../src/@abbasfarid/react-native-video/components",
-    "../src/@abbasfarid/react-native-video/context",
-    "../src/@abbasfarid/react-native-video/hooks",
-    "../src/@abbasfarid/react-native-video/utils",
-    "../src/@abbasfarid/react-native-video/index.ts"
-  ],
-  "exclude": ["node_modules", "dist", "/**/*.stories.tsx", "/**/*.test"]
+  "include": ["src/@abbasfarid/react-native-video"],
+  "exclude": ["**/*.stories.tsx", "**/*.test.tsx", "**/*.test.ts"]
 }
