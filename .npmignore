@@ -14,10 +14,12 @@ babel.config.js
 commitlint.config.js
 jest.config.js
 metro.config.js
+release.config.js
 
 index.js
 yarn.lock
 
+.buckconfig
 .vscode
 .github
 .husky
@@ -25,6 +27,7 @@ yarn.lock
 .editorconfig
 .eslintignore
 .eslintrc.js
+.gitattributes
 .prettierignore
 .prettierrc.js
 .watchmanconfig

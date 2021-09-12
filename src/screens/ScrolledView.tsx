@@ -2,7 +2,6 @@ import React from 'react';
 import { ScrollView, StyleSheet, Text } from 'react-native';
 
 import { Video } from '../@abbasfarid/react-native-video';
-// import { Video } from '../../packaged';
 
 const styles = StyleSheet.create({
   container: {
