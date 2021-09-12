@@ -4,6 +4,9 @@ module.exports = {
   verbose: true,
   setupFiles: ['<rootDir>/.jest/setup.ts'],
   setupFilesAfterEnv: ['<rootDir>/__mocks__/globalMock.ts'],
+  moduleNameMapper: {
+    '\\.svg': '<rootDir>/__mocks__/svgMock.ts',
+  },
   // modulePathIgnorePatterns: ['<rootDir>/e2e'],
   transformIgnorePatterns: [
     'node_modules/(?!(jest-)?' +
