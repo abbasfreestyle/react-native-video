@@ -1,6 +1,6 @@
 {
   "name": "@abbasfarid/react-native-video",
-  "version": "0.0.0-development",
+  "version": "1.0.0",
   "private": false,
   "description": "React Native Video Player",
   "author": "Abbas Farid",
@@ -8,6 +8,10 @@
   "main": "dist/index.js",
   "publishConfig": {
     "access": "public"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/abbasfreestyle/react-native-video.git"
   },
   "scripts": {
     "android": "react-native run-android",
@@ -97,9 +101,5 @@
       "pattern": "**/*.stories.{ts,tsx}",
       "outputFile": "./storybook/storyLoader.js"
     }
-  },
-  "repository": {
-    "type": "git",
-    "url": "https://github.com/abbasfreestyle/react-native-video.git"
   }
 }
