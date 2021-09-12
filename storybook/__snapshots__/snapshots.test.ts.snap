@@ -13,3 +13,124 @@ exports[`Storyshots Components Play Button 1`] = `
   </Text>
 </View>
 `;
+
+exports[`Storyshots Components SVG Icons 1`] = `
+<RCTScrollView>
+  <View>
+    <View
+      style={
+        Object {
+          "alignItems": "center",
+          "flexDirection": "row",
+          "height": 50,
+          "justifyContent": "space-between",
+          "paddingHorizontal": 50,
+        }
+      }
+    >
+      <Text>
+        FastForward
+      </Text>
+      <SvgMock
+        height={25}
+        width={25}
+      />
+    </View>
+    <View
+      style={
+        Object {
+          "alignItems": "center",
+          "flexDirection": "row",
+          "height": 50,
+          "justifyContent": "space-between",
+          "paddingHorizontal": 50,
+        }
+      }
+    >
+      <Text>
+        Mute
+      </Text>
+      <SvgMock
+        height={25}
+        width={25}
+      />
+    </View>
+    <View
+      style={
+        Object {
+          "alignItems": "center",
+          "flexDirection": "row",
+          "height": 50,
+          "justifyContent": "space-between",
+          "paddingHorizontal": 50,
+        }
+      }
+    >
+      <Text>
+        Pause
+      </Text>
+      <SvgMock
+        height={25}
+        width={25}
+      />
+    </View>
+    <View
+      style={
+        Object {
+          "alignItems": "center",
+          "flexDirection": "row",
+          "height": 50,
+          "justifyContent": "space-between",
+          "paddingHorizontal": 50,
+        }
+      }
+    >
+      <Text>
+        Play
+      </Text>
+      <SvgMock
+        height={25}
+        width={25}
+      />
+    </View>
+    <View
+      style={
+        Object {
+          "alignItems": "center",
+          "flexDirection": "row",
+          "height": 50,
+          "justifyContent": "space-between",
+          "paddingHorizontal": 50,
+        }
+      }
+    >
+      <Text>
+        Rewind
+      </Text>
+      <SvgMock
+        height={25}
+        width={25}
+      />
+    </View>
+    <View
+      style={
+        Object {
+          "alignItems": "center",
+          "flexDirection": "row",
+          "height": 50,
+          "justifyContent": "space-between",
+          "paddingHorizontal": 50,
+        }
+      }
+    >
+      <Text>
+        Sound
+      </Text>
+      <SvgMock
+        height={25}
+        width={25}
+      />
+    </View>
+  </View>
+</RCTScrollView>
+`;
