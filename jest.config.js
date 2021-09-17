@@ -17,8 +17,9 @@ module.exports = {
   coveragePathIgnorePatterns: [
     'index.js',
     'index.ts',
-    'types.ts',
     'rn-addons.ts',
+    'stories.tsx',
+    'types.ts',
   ],
   coverageThreshold: {
     global: {

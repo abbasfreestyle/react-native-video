@@ -1,12 +1,6 @@
-jest.mock('react-native-reanimated', () => {
-  const Reanimated = require('react-native-reanimated/mock');
+require('react-native-reanimated/lib/reanimated2/jestUtils').setUpTests();
 
-  // The mock for `call` immediately calls the callback which is incorrect
-  // So we override it with a no-op
-  Reanimated.default.call = () => {};
-
-  return Reanimated;
-});
+global.__reanimatedWorkletInit = jest.fn();
 
 jest.mock('@react-navigation/native/lib/commonjs/useLinking.native', () => ({
   default: () => ({ getInitialState: { then: jest.fn() } }),
