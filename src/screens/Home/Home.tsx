@@ -15,7 +15,7 @@ export const Home = () => {
         onPress={() => navigation.navigate('Scrolled View')}
       />
       <Button
-        title="Tabbed View"
+        title="Tabbed Views"
         onPress={() => navigation.navigate('Tabbed Views')}
       />
       <Button
