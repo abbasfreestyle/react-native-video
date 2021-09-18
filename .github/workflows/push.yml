@@ -55,7 +55,9 @@ jobs:
           path: node_modules
           key: node-modules-${{ hashFiles('yarn.lock') }}
       - name: Test code generation
-        run: yarn tsc --project tsconfig.build.json
+        run: yarn generate
+      - name: Test assets copy
+        run: yarn generate:assets
 
   type:
     needs: [install]

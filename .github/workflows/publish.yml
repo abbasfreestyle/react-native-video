@@ -24,7 +24,10 @@ jobs:
         run: yarn
 
       - name: Generate code to publish
-        run: yarn tsc --project tsconfig.build.json
+        run: yarn generate
+
+      - name: Copy assets over
+        run: yarn generate:assets
 
       # - name: Publish package
       #   env:
