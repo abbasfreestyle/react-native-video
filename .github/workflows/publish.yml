@@ -23,7 +23,7 @@ jobs:
       - name: Install dependencies
         run: yarn
 
-      - name: Create code for distribution
+      - name: Generate code to publish
         run: yarn tsc --project tsconfig.build.json
 
       # - name: Publish package

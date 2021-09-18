@@ -42,6 +42,21 @@ jobs:
       - name: Lint
         run: yarn lint
 
+  test-code-gen:
+    needs: [install]
+    runs-on: ubuntu-latest
+    name: Test code generation
+    steps:
+      - uses: actions/checkout@v2
+      - name: Restore node_modules
+        id: cache-node-modules
+        uses: actions/cache@v2
+        with:
+          path: node_modules
+          key: node-modules-${{ hashFiles('yarn.lock') }}
+      - name: Test code generation
+        run: yarn tsc --project tsconfig.build.json
+
   type:
     needs: [install]
     runs-on: ubuntu-latest
