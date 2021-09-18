@@ -7,6 +7,7 @@ import Animated, {
   withTiming,
 } from 'react-native-reanimated';
 
+import { useVideo } from '../../context';
 import { Icon } from '../Icon';
 
 export type Props = {
@@ -18,7 +19,8 @@ const iconProps: Omit<ComponentProps<typeof Icon>, 'type'> = {
   size: 50,
 };
 
-export const Play = ({ onPress, play }: Props) => {
+export const Play = () => {
+  const { play, togglePlay } = useVideo();
   const transform = useSharedValue(1);
 
   const animatedStyle = useAnimatedStyle(() => ({
@@ -39,7 +41,7 @@ export const Play = ({ onPress, play }: Props) => {
     <View style={styles.container}>
       <Animated.View style={animatedStyle} testID="rn-video-play-button">
         <Pressable
-          onPress={onPress}
+          onPress={togglePlay}
           style={styles.button}
           accessibilityRole="button"
         >
