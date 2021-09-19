@@ -1,1 +1,2 @@
-export { Video } from './components/Video';
+export { Play, Video } from './components';
+export { useVideo, VideoProvider } from './context';

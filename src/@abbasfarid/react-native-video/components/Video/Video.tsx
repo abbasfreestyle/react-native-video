@@ -1,9 +1,14 @@
 import React, { useState } from 'react';
 import { StyleSheet, View } from 'react-native';
 
-import VideoPlayer from 'react-native-video';
+import RNVideo, { VideoProperties } from 'react-native-video';
 
-import { Play } from '../Play';
+import { useVideo } from '../../context';
+
+export type Props = {
+  children?: React.ReactNode;
+  source: VideoProperties['source'];
+};
 
 const styles = StyleSheet.create({
   container: {
@@ -21,15 +26,12 @@ const styles = StyleSheet.create({
   },
 });
 
-const url =
-  'https://commondatastorage.googleapis.com/gtv-videos-bucket/sample/WhatCarCanYouGetForAGrand.mp4';
-
-export const Video = () => {
+export const VideoPlayer = ({ children, source }: Props) => {
   const [height, setHeight] = useState(0);
-  const [play, setPlay] = useState(false);
-
+  const { play } = useVideo();
   return (
     <View
+      testID="video-container"
       style={styles.container}
       onLayout={({
         nativeEvent: {
@@ -39,14 +41,13 @@ export const Video = () => {
         setHeight(width * 0.5625);
       }}
     >
-      <VideoPlayer
+      <RNVideo
+        testID="rn-video"
         paused={!play}
-        source={{ uri: url }}
+        source={source}
         style={[{ height }, styles.video]}
       />
-      <View style={styles.overlay}>
-        <Play play={play} onPress={() => setPlay((prev) => !prev)} />
-      </View>
+      <View style={styles.overlay}>{children}</View>
     </View>
   );
 };

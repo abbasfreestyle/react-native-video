@@ -66,6 +66,7 @@ exports[`Storyshots Components Play Button 1`] = `
       >
         <SvgMock
           height={50}
+          testID="play-icon"
           width={50}
         />
       </View>

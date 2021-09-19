@@ -1,41 +1,41 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`Icon matches the snapshot 1`] = `
+exports[`Icon matches the snapshot FastForward 1`] = `
 <SvgMock
   height={20}
   width={20}
 />
 `;
 
-exports[`Icon matches the snapshot 2`] = `
+exports[`Icon matches the snapshot Mute 1`] = `
 <SvgMock
   height={20}
   width={20}
 />
 `;
 
-exports[`Icon matches the snapshot 3`] = `
+exports[`Icon matches the snapshot Pause 1`] = `
 <SvgMock
   height={20}
   width={20}
 />
 `;
 
-exports[`Icon matches the snapshot 4`] = `
+exports[`Icon matches the snapshot Play 1`] = `
 <SvgMock
   height={20}
   width={20}
 />
 `;
 
-exports[`Icon matches the snapshot 5`] = `
+exports[`Icon matches the snapshot Rewind 1`] = `
 <SvgMock
   height={20}
   width={20}
 />
 `;
 
-exports[`Icon matches the snapshot 6`] = `
+exports[`Icon matches the snapshot Sound 1`] = `
 <SvgMock
   height={20}
   width={20}

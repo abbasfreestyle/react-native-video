@@ -1,8 +1,9 @@
-import React, { useState } from 'react';
+import React from 'react';
 import { StyleSheet, View } from 'react-native';
 
 import { storiesOf } from '@storybook/react-native';
 
+import { VideoProvider } from '../..';
 import { Play } from './Play';
 
 const styles = StyleSheet.create({
@@ -12,11 +13,12 @@ const styles = StyleSheet.create({
 });
 
 const TogglePlay = () => {
-  const [play, setPlay] = useState(false);
   return (
-    <View style={styles.container}>
-      <Play play={play} onPress={() => setPlay((prev) => !prev)} />
-    </View>
+    <VideoProvider>
+      <View style={styles.container}>
+        <Play />
+      </View>
+    </VideoProvider>
   );
 };
 

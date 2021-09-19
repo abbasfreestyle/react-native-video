@@ -6,23 +6,19 @@ import {
   withReanimatedTimer,
 } from 'react-native-reanimated/lib/reanimated2/jestUtils';
 
-import { Play, Props } from './Play';
+import { VideoProvider } from '../../context';
+import { Play } from './Play';
 
-const renderComponent = ({
-  play = false,
-  onPress = jest.fn(),
-}: Partial<Props>) => render(<Play play={play} onPress={onPress} />);
+const renderComponent = () => render(<Play />, { wrapper: VideoProvider });
 
 jest.useFakeTimers();
 
 test('should animate', () => {
   withReanimatedTimer(() => {
-    const { getByTestId, rerender } = renderComponent({ play: true });
+    const { getByTestId } = renderComponent();
 
     const view = getByTestId('rn-video-play-button');
     expect(view).toHaveAnimatedStyle({ transform: [{ scale: 1 }] });
-
-    rerender(<Play play={false} />);
 
     advanceAnimationByTime(100);
     expect(view).toHaveAnimatedStyle({ transform: [{ scale: 1.15 }] });
@@ -35,18 +31,21 @@ test('should animate', () => {
   });
 });
 
-test('Should be tappable', () => {
-  const onPressMock = jest.fn();
-  const { getByRole } = renderComponent({ onPress: onPressMock });
+test('Should toggle play/pause', () => {
+  const { getByRole, getByTestId } = renderComponent();
 
+  const icon = getByTestId('play-icon');
   const button = getByRole('button');
+
+  expect(icon.parent?.props.type).toBe('Play');
+
   fireEvent.press(button);
 
-  expect(onPressMock).toHaveBeenCalled();
+  expect(icon.parent?.props.type).toBe('Pause');
 });
 
 test('should have animated style', () => {
-  const { getByTestId } = renderComponent({ play: true });
+  const { getByTestId } = renderComponent();
 
   const view = getByTestId('rn-video-play-button');
   expect(view).toHaveAnimatedStyle({ transform: [{ scale: 1 }] });
