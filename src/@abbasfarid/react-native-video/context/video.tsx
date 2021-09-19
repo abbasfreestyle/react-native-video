@@ -2,7 +2,7 @@ import React, { createContext, ReactNode, useContext, useState } from 'react';
 
 type IVideoProvider = {
   play: boolean;
-  togglePlay: VoidFunction;
+  togglePlay: () => void;
 };
 
 /* istanbul ignore next */
