@@ -15,29 +15,6 @@ const CustomPlay = () => {
   );
 };
 
-/* 
-Idea
-
-<Video src>
-  <Top>
-    <Logo url />
-    <Title text />
-    <More onPress />
-  </Top>
-  <Main>
-    <Rewind />
-    <Play />
-    <FastForward />
-  </Main>
-  <Bottom>
-    <Play />
-    <Scrubber />
-    <Volume />
-    <FullScreen />
-  </Bottom>
-</Video>
-*/
-
 export const ScrolledView = () => {
   return (
     <ScrollView style={styles.container}>
