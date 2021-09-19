@@ -5,9 +5,12 @@ type IVideoProvider = {
   togglePlay: VoidFunction;
 };
 
+/* istanbul ignore next */
 const initialState: IVideoProvider = {
   play: false,
-  togglePlay: () => undefined,
+  togglePlay: () => {
+    // do nothing
+  },
 };
 
 const VideoContext = createContext<IVideoProvider>(initialState);
@@ -40,47 +43,3 @@ export const useVideo = () => {
     togglePlay,
   };
 };
-
-/* 
-Logo
-show/hide (component)
-
-Title
-show/hide (component)
-
-Menu
-show/hide (component)
-
-Play
-play: boolean
-onPress => toggle()
-
-FF
-onDoublePress => fastForward()
-
-RWD
-onDoublePress => rewind()
-
-Progress
-progress ({ time, number })
-onProgress => onProgress(progress: number)
-
-Volume
-volume
-onVolume => onVolume(volume: number)
-
-Fullscreen
-fullScreen: boolean
-onFullScreen => onFullScreen(value: boolean)
-
-Error
-error: ?
-onErrorDismiss => onErrorDismiss
-
-Overlay
-Start -> show
-if play -> hide after 3 seconds
-on tap -> toggle
-on action -> reset 3 second dismiss
-End -> show
-*/

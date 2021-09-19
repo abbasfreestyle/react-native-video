@@ -31,6 +31,7 @@ export const VideoPlayer = ({ children, source }: Props) => {
   const { play } = useVideo();
   return (
     <View
+      testID="video-container"
       style={styles.container}
       onLayout={({
         nativeEvent: {
@@ -41,6 +42,7 @@ export const VideoPlayer = ({ children, source }: Props) => {
       }}
     >
       <RNVideo
+        testID="rn-video"
         paused={!play}
         source={source}
         style={[{ height }, styles.video]}

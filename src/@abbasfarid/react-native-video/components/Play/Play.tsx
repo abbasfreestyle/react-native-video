@@ -27,6 +27,7 @@ export const Play = () => {
     transform: [
       {
         scale: withTiming(transform.value, { duration: 100 }, (finished) => {
+          /* istanbul ignore next */
           if (finished) transform.value = 1;
         }),
       },
@@ -45,7 +46,11 @@ export const Play = () => {
           style={styles.button}
           accessibilityRole="button"
         >
-          <Icon type={play ? 'Pause' : 'Play'} {...iconProps} />
+          <Icon
+            testID="play-icon"
+            type={play ? 'Pause' : 'Play'}
+            {...iconProps}
+          />
         </Pressable>
       </Animated.View>
     </View>
