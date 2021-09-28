@@ -4,6 +4,7 @@ import { StyleSheet, View } from 'react-native';
 import RNVideo, { VideoProperties } from 'react-native-video';
 
 import { useVideo } from '../../context';
+import { Displayer } from '..';
 
 export type Props = {
   children?: React.ReactNode;
@@ -31,8 +32,6 @@ export const VideoPlayer = ({ children, source }: Props) => {
   const { play } = useVideo();
   return (
     <View
-      testID="video-container"
-      style={styles.container}
       onLayout={({
         nativeEvent: {
           layout: { width },
@@ -40,14 +39,18 @@ export const VideoPlayer = ({ children, source }: Props) => {
       }) => {
         setHeight(width * 0.5625);
       }}
+      style={styles.container}
+      testID="video-container"
     >
       <RNVideo
-        testID="rn-video"
         paused={!play}
         source={source}
         style={[{ height }, styles.video]}
+        testID="rn-video"
       />
-      <View style={styles.overlay}>{children}</View>
+      <View style={styles.overlay}>
+        <Displayer>{children}</Displayer>
+      </View>
     </View>
   );
 };
