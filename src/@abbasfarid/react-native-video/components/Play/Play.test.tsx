@@ -6,10 +6,15 @@ import {
   withReanimatedTimer,
 } from 'react-native-reanimated/lib/reanimated2/jestUtils';
 
-import { VideoProvider } from '../../context';
+import { MockVideoProvider } from '../../context';
 import { Play } from './Play';
 
-const renderComponent = () => render(<Play />, { wrapper: VideoProvider });
+const renderComponent = ({ display }: { display?: boolean } = {}) =>
+  render(<Play />, {
+    wrapper: ({ children }) => (
+      <MockVideoProvider display={display}>{children}</MockVideoProvider>
+    ),
+  });
 
 jest.useFakeTimers();
 
@@ -32,7 +37,7 @@ test('should animate', () => {
 });
 
 test('Should toggle play/pause', () => {
-  const { getByRole, getByTestId } = renderComponent();
+  const { getByRole, getByTestId } = renderComponent({ display: true });
 
   const icon = getByTestId('play-icon');
   const button = getByRole('button');

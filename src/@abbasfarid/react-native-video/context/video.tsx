@@ -28,6 +28,21 @@ export const VideoProvider = ({ children }: { children: ReactNode }) => {
   );
 };
 
+export const MockVideoProvider = ({
+  children,
+  display = false,
+}: {
+  children: ReactNode;
+  display?: boolean;
+}) => {
+  const value = useVideoProvider();
+  return (
+    <VideoContext.Provider value={{ ...value, display }}>
+      {children}
+    </VideoContext.Provider>
+  );
+};
+
 const useVideoProvider = () => {
   const [play, setPlay] = useState(false);
   const [display, setDisplay] = useState(false);
