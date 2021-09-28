@@ -30,6 +30,8 @@ module.exports = {
     'no-unused-vars': 2,
     'react-native/no-inline-styles': 2,
     'react-native/no-unused-styles': 2,
+    'react/jsx-filename-extension': ['warn', { extensions: ['.tsx'] }],
+    'react/jsx-sort-props': 'error',
     'simple-import-sort/imports': [
       'error',
       {
