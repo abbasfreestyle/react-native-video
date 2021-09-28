@@ -20,7 +20,7 @@ const iconProps: Omit<ComponentProps<typeof Icon>, 'type'> = {
 };
 
 export const Play = () => {
-  const { play, togglePlay } = useVideo();
+  const { display, play, togglePlay } = useVideo();
   const transform = useSharedValue(1);
 
   const animatedStyle = useAnimatedStyle(() => ({
@@ -42,9 +42,10 @@ export const Play = () => {
     <View style={styles.container}>
       <Animated.View style={animatedStyle} testID="rn-video-play-button">
         <Pressable
+          accessibilityRole="button"
+          disabled={!display}
           onPress={togglePlay}
           style={styles.button}
-          accessibilityRole="button"
         >
           <Icon
             testID="play-icon"
