@@ -23,7 +23,7 @@ stories.add(`SVG Icons`, () => (
     {Object.keys(svgIcons).map((type) => (
       <View key={type} style={styles.wrapper}>
         <Text>{type}</Text>
-        <Icon type={type as SvgAssets} size={25} />
+        <Icon size={25} type={type as SvgAssets} />
       </View>
     ))}
   </ScrollView>

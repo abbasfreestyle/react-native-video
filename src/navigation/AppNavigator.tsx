@@ -18,11 +18,11 @@ const Tabs = createBottomTabNavigator<RootTabsParamList>();
 
 const TabbedViews = () => (
   <Tabs.Navigator
-    screenOptions={{ header: () => null, tabBarIcon: () => null }}
     initialRouteName="Tab One"
+    screenOptions={{ header: () => null, tabBarIcon: () => null }}
   >
-    <Tabs.Screen name="Tab One" component={TabOne} />
-    <Tabs.Screen name="Tab Two" component={TabTwo} />
+    <Tabs.Screen component={TabOne} name="Tab One" />
+    <Tabs.Screen component={TabTwo} name="Tab Two" />
   </Tabs.Navigator>
 );
 
@@ -31,10 +31,10 @@ export const AppWithNavigator: FC = () => {
     <SafeAreaView style={styles.safeArea}>
       <NavigationContainer<RootStackParamList>>
         <Stack.Navigator initialRouteName="Home">
-          <Stack.Screen name="Home" component={Home} />
-          <Stack.Screen name="Scrolled View" component={ScrolledView} />
-          <Stack.Screen name="Tabbed Views" component={TabbedViews} />
-          <Stack.Screen name="Storybook" component={StorybookUI} />
+          <Stack.Screen component={Home} name="Home" />
+          <Stack.Screen component={ScrolledView} name="Scrolled View" />
+          <Stack.Screen component={TabbedViews} name="Tabbed Views" />
+          <Stack.Screen component={StorybookUI} name="Storybook" />
         </Stack.Navigator>
       </NavigationContainer>
     </SafeAreaView>

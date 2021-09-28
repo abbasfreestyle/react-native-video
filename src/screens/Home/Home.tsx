@@ -11,16 +11,16 @@ export const Home = () => {
   return (
     <>
       <Button
-        title="Scrolled View"
         onPress={() => navigation.navigate('Scrolled View')}
+        title="Scrolled View"
       />
       <Button
-        title="Tabbed Views"
         onPress={() => navigation.navigate('Tabbed Views')}
+        title="Tabbed Views"
       />
       <Button
-        title="Storybook"
         onPress={() => navigation.navigate('Storybook')}
+        title="Storybook"
       />
     </>
   );
