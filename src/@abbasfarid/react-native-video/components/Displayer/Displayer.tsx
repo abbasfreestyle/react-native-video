@@ -49,8 +49,11 @@ export const Displayer = ({
   }, [display, opacity]);
 
   return (
-    <Pressable onPress={toggleDisplay}>
-      <Animated.View style={[style, styles.container, { backgroundColor }]}>
+    <Pressable accessibilityRole="button" onPress={toggleDisplay}>
+      <Animated.View
+        style={[style, styles.container, { backgroundColor }]}
+        testID="animated-displayer"
+      >
         {children}
       </Animated.View>
     </Pressable>
