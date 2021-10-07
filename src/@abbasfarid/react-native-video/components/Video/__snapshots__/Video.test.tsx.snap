@@ -41,6 +41,7 @@ exports[`should match the snapshot 1`] = `
     }
   >
     <View
+      accessibilityRole="button"
       accessible={true}
       collapsable={false}
       focusable={true}
@@ -70,6 +71,7 @@ exports[`should match the snapshot 1`] = `
             "opacity": 0,
           }
         }
+        testID="animated-displayer"
       />
     </View>
   </View>

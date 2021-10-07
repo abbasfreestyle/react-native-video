@@ -9,6 +9,7 @@ exports[`Storyshots Components Displayer 1`] = `
   }
 >
   <View
+    accessibilityRole="button"
     accessible={true}
     collapsable={false}
     focusable={true}
@@ -38,6 +39,7 @@ exports[`Storyshots Components Displayer 1`] = `
           "opacity": 0,
         }
       }
+      testID="animated-displayer"
     >
       <View
         style={

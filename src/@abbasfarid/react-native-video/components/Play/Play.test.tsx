@@ -6,17 +6,15 @@ import {
   withReanimatedTimer,
 } from 'react-native-reanimated/lib/reanimated2/jestUtils';
 
-import { MockVideoProvider } from '../../context';
+import { MockVideoProvider, VideoContextProps } from '../../context';
 import { Play } from './Play';
 
-const renderComponent = ({ display }: { display?: boolean } = {}) =>
+const renderComponent = (value: Partial<VideoContextProps> = {}) =>
   render(<Play />, {
     wrapper: ({ children }) => (
-      <MockVideoProvider display={display}>{children}</MockVideoProvider>
+      <MockVideoProvider mockedValue={value}>{children}</MockVideoProvider>
     ),
   });
-
-jest.useFakeTimers();
 
 test('should animate', () => {
   withReanimatedTimer(() => {
