@@ -1,6 +1,6 @@
 import React, { createContext, ReactNode, useContext, useState } from 'react';
 
-type IVideoProvider = {
+export type VideoContextProps = {
   display: boolean;
   play: boolean;
   toggleDisplay: () => void;
@@ -12,14 +12,14 @@ const noop = () => {
 };
 
 /* istanbul ignore next */
-const initialState: IVideoProvider = {
+const initialState: VideoContextProps = {
   display: false,
   play: false,
   toggleDisplay: noop,
   togglePlay: noop,
 };
 
-const VideoContext = createContext<IVideoProvider>(initialState);
+const VideoContext = createContext<VideoContextProps>(initialState);
 
 export const VideoProvider = ({ children }: { children: ReactNode }) => {
   const value = useVideoProvider();
@@ -30,14 +30,14 @@ export const VideoProvider = ({ children }: { children: ReactNode }) => {
 
 export const MockVideoProvider = ({
   children,
-  display = false,
-}: {
+  mockedValue,
+}: Partial<VideoContextProps> & {
   children: ReactNode;
-  display?: boolean;
+  mockedValue: Partial<VideoContextProps>;
 }) => {
   const value = useVideoProvider();
   return (
-    <VideoContext.Provider value={{ ...value, display }}>
+    <VideoContext.Provider value={{ ...value, ...mockedValue }}>
       {children}
     </VideoContext.Provider>
   );
