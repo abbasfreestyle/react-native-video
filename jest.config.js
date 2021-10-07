@@ -3,7 +3,10 @@ module.exports = {
   moduleFileExtensions: ['ts', 'tsx', 'js', 'jsx', 'json', 'node'],
   verbose: true,
   setupFiles: ['<rootDir>/.jest/setup.ts'],
-  setupFilesAfterEnv: ['<rootDir>/__mocks__/globalMock.ts'],
+  setupFilesAfterEnv: [
+    '@testing-library/jest-native/extend-expect',
+    '<rootDir>/__mocks__/globalMock.ts',
+  ],
   moduleNameMapper: {
     '\\.svg': '<rootDir>/__mocks__/svgMock.ts',
   },

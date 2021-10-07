@@ -1,6 +1,6 @@
 require('react-native-reanimated/lib/reanimated2/jestUtils').setUpTests();
 
-global.__reanimatedWorkletInit = jest.fn();
+// global.__reanimatedWorkletInit = jest.fn();
 
 jest.mock('@react-navigation/native/lib/commonjs/useLinking.native', () => ({
   default: () => ({ getInitialState: { then: jest.fn() } }),
