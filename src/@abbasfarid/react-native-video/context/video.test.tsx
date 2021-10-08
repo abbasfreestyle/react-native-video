@@ -13,3 +13,15 @@ test('should toggle the play state', () => {
 
   expect(result.current.play).toBe(true);
 });
+
+test('should toggle the display state', () => {
+  const { result } = renderHook(useVideo, { wrapper: VideoProvider });
+
+  expect(result.current.display).toBe(false);
+
+  act(() => {
+    result.current.toggleDisplay();
+  });
+
+  expect(result.current.display).toBe(true);
+});

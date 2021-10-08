@@ -7,11 +7,11 @@ export type VideoContextProps = {
   togglePlay: () => void;
 };
 
+/* istanbul ignore next */
 const noop = () => {
   // do nothing;
 };
 
-/* istanbul ignore next */
 const initialState: VideoContextProps = {
   display: false,
   play: false,
