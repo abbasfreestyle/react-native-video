@@ -315,3 +315,39 @@ exports[`Storyshots Components SVG Icons 1`] = `
   </View>
 </RCTScrollView>
 `;
+
+exports[`Storyshots Components Skip Button 1`] = `
+<View
+  style={
+    Object {
+      "flex": 1,
+    }
+  }
+>
+  <View
+    accessible={true}
+    collapsable={false}
+    focusable={true}
+    onBlur={[Function]}
+    onClick={[Function]}
+    onFocus={[Function]}
+    onResponderGrant={[Function]}
+    onResponderMove={[Function]}
+    onResponderRelease={[Function]}
+    onResponderTerminate={[Function]}
+    onResponderTerminationRequest={[Function]}
+    onStartShouldSetResponder={[Function]}
+  >
+    <View
+      style={
+        Object {
+          "alignItems": "center",
+          "backgroundColor": "rgba(0,0,0,0.5)",
+          "height": "100%",
+          "justifyContent": "center",
+        }
+      }
+    />
+  </View>
+</View>
+`;
