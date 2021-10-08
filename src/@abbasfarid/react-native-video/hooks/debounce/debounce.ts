@@ -1,4 +1,4 @@
-import { useRef } from 'react';
+import { useEffect, useRef } from 'react';
 
 export const useDebounce = () => {
   const timerRef = useRef<ReturnType<typeof setTimeout>>();
@@ -12,6 +12,8 @@ export const useDebounce = () => {
   const clearDebounce = () => {
     if (timerRef?.current) clearTimeout(timerRef.current);
   };
+
+  useEffect(() => clearDebounce, []);
 
   return { debounce, clearDebounce };
 };
