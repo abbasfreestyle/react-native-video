@@ -85,7 +85,7 @@
     "react-native-codegen": "^0.0.7",
     "react-native-keep-awake": "^4.0.0",
     "react-native-orientation": "^3.1.3",
-    "react-native-reanimated": "^2.3.0-beta.1",
+    "react-native-reanimated": "^2.2.0",
     "react-native-safe-area-context": "^3.3.0",
     "react-native-screens": "^3.6.0",
     "react-native-storybook-loader": "^2.0.4",
