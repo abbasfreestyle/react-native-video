@@ -22,13 +22,12 @@ const renderComponent = () => (
 test('displayer should stay visible if interacting within 2 seconds on each tap', () => {
   withReanimatedTimer(() => {
     const { getAllByRole, getByTestId } = renderTestComponent();
-    const [displayer, playButton] = getAllByRole('button');
+    const [displayer, , playButton] = getAllByRole('button');
     const animView = getByTestId('animated-displayer');
 
     fireEvent.press(displayer);
 
     advanceAnimationByTime(1900);
-
     expect(animView).toHaveAnimatedStyle({ opacity: 1 });
 
     act(() => {
