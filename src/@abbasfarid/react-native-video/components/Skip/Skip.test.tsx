@@ -1,10 +1,44 @@
+// import React from 'react';
+
 import { act, renderHook } from '@testing-library/react-hooks';
 
-import { useSkip } from './Skip.hooks';
+// import { act as actEl, fireEvent, render } from '@testing-library/react-native';
+// import { MockVideoProvider } from '../../context';
+// import { Skip } from './Skip';
+import { SkipDirection, useAnimatedSkip, useSkip } from './Skip.hooks';
+
+type Initial<T> = { initial: T } & T;
+
+type AnimatedStyle<T> = {
+  animatedStyle: { current: { value: T } };
+} & T;
+
+const expectAnimatedStyle = (style: Record<string, unknown>) => ({
+  toBe: (output: Record<string, unknown>) => {
+    expect(
+      (style as AnimatedStyle<typeof style>).animatedStyle.current.value,
+    ).toMatchObject(output);
+  },
+});
+
+const expectInitialStyle = (style: Record<string, unknown>) => ({
+  toBe: (output: Record<string, unknown>) => {
+    expect((style as Initial<typeof style>).initial).toMatchObject(output);
+  },
+});
 
 jest.useFakeTimers();
 
 describe('useSkip hook', () => {
+  // beforeAll(() => {
+  //   jest.useFakeTimers();
+  // });
+
+  // afterAll(() => {
+  //   jest.runOnlyPendingTimers();
+  //   // jest.useFakeTimers();
+  //   jest.useRealTimers();
+  // });
   test('should increment every time it is invoked', () => {
     const { result } = renderHook(() => useSkip('fast-forward'));
     act(() => {
@@ -62,3 +96,116 @@ describe('useSkip hook', () => {
     });
   });
 });
+
+describe('useAnimatedSkip hook', () => {
+  test('circle should scale and fade in/out', () => {
+    let tapCount = 3;
+    const { rerender, result } = renderHook(() =>
+      useAnimatedSkip('fast-forward', tapCount),
+    );
+
+    const { circleStyle } = result.current;
+    expectInitialStyle(circleStyle).toBe({
+      opacity: 0,
+      transform: [{ scale: 0.1 }],
+    });
+
+    jest.advanceTimersByTime(300);
+
+    expectAnimatedStyle(circleStyle).toBe({
+      opacity: 0.15,
+      transform: [{ scale: 2 }],
+    });
+
+    tapCount = 0;
+    rerender();
+
+    jest.advanceTimersByTime(800);
+
+    expectAnimatedStyle(circleStyle).toBe({
+      opacity: 0,
+      transform: [{ scale: 0.1 }],
+    });
+  });
+
+  test('icon should fade in', () => {
+    let tapCount = 3;
+    const { rerender, result } = renderHook(() =>
+      useAnimatedSkip('fast-forward', tapCount),
+    );
+
+    const { iconStyle } = result.current;
+
+    expectInitialStyle(iconStyle).toBe({ opacity: 0 });
+
+    jest.advanceTimersByTime(301);
+
+    expectAnimatedStyle(iconStyle).toBe({ opacity: 1 });
+
+    tapCount = 0;
+    rerender();
+
+    jest.advanceTimersByTime(500);
+
+    expectAnimatedStyle(iconStyle).toBe({ opacity: 0 });
+  });
+
+  const cases: [SkipDirection, number][] = [
+    ['fast-forward', 40],
+    ['rewind', -40],
+  ];
+
+  test.each(cases)(
+    'seconds text with direction %s should fade and slide in',
+    (direction, translateX) => {
+      let tapCount = 3;
+      const { rerender, result } = renderHook(() =>
+        useAnimatedSkip(direction, tapCount),
+      );
+
+      const { textStyle } = result.current;
+
+      expectInitialStyle(textStyle).toBe({
+        opacity: 0,
+        transform: [{ translateX: 0 }],
+      });
+
+      jest.advanceTimersByTime(301);
+
+      expectAnimatedStyle(textStyle).toBe({
+        opacity: 1,
+        transform: [{ translateX }],
+      });
+
+      tapCount = 0;
+      rerender();
+
+      jest.advanceTimersByTime(500);
+
+      expectAnimatedStyle(textStyle).toBe({
+        opacity: 0,
+        transform: [{ translateX: 0 }],
+      });
+    },
+  );
+});
+
+// describe('Behavior', () => {
+//   test.only('double tapping should animate', () => {
+//     const { getByRole, getByText } = render(<Skip direction="fast-forward" />, {
+//       wrapper: MockVideoProvider,
+//     });
+
+//     const skipArea = getByRole('button');
+
+//     actEl(() => fireEvent.press(skipArea));
+//     actEl(() => fireEvent.press(skipArea));
+
+//     // jest.advanceTimersByTime(201);
+
+//     const seconds = getByText('5 sec');
+
+//     expect(seconds).toBeTruthy();
+//   });
+//   // test.only('single tap should do nothing', () => {});
+// });
