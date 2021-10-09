@@ -40,20 +40,20 @@ export const Play = () => {
 
   return (
     <View style={styles.container}>
-      <Animated.View style={animatedStyle} testID="rn-video-play-button">
-        <Pressable
-          accessibilityRole="button"
-          disabled={!display}
-          onPress={togglePlay}
-          style={styles.button}
-        >
+      <Pressable
+        accessibilityRole="button"
+        disabled={!display}
+        onPress={togglePlay}
+        style={styles.button}
+      >
+        <Animated.View style={animatedStyle} testID="rn-video-play-button">
           <Icon
             testID="play-icon"
             type={play ? 'Pause' : 'Play'}
             {...iconProps}
           />
-        </Pressable>
-      </Animated.View>
+        </Animated.View>
+      </Pressable>
     </View>
   );
 };

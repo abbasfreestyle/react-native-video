@@ -27,7 +27,9 @@ test('should animate', () => {
     expect(view).toHaveAnimatedStyle({ transform: [{ scale: 1.15 }] });
 
     advanceAnimationByTime(20);
-    expect(view).toHaveAnimatedStyle({ transform: [{ scale: 1.07203 }] });
+    expect(view).toHaveAnimatedStyle({
+      transform: [{ scale: 1.0720299999999998 }],
+    });
 
     advanceAnimationByTime(70);
     expect(view).toHaveAnimatedStyle({ transform: [{ scale: 1 }] });
