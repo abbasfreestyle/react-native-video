@@ -1,15 +1,10 @@
-import React, { ReactNode, useEffect } from 'react';
+import React, { ReactNode } from 'react';
 import { Pressable, StyleSheet } from 'react-native';
 
-import Animated, {
-  useAnimatedStyle,
-  useSharedValue,
-  withTiming,
-} from 'react-native-reanimated';
+import Animated from 'react-native-reanimated';
 
-import { useVideo } from '../../context';
-import { useDebounce } from '../../hooks';
 import { Skip } from '../Skip';
+import { useDisplayer, useOpacity } from './Displayer.hooks';
 
 /* 
 layers:
@@ -25,19 +20,6 @@ video
 type Props = {
   children?: ReactNode;
   backgroundColor?: string;
-};
-
-const useOpacity = (display: boolean) => {
-  const opacity = useSharedValue(0);
-  const style = useAnimatedStyle(() => ({
-    opacity: withTiming(opacity.value, { duration: 200 }),
-  }));
-
-  useEffect(() => {
-    opacity.value = display ? 1 : 0;
-  }, [display, opacity]);
-
-  return { style };
 };
 
 const BG = ({
@@ -60,16 +42,8 @@ export const Displayer = ({
   backgroundColor = 'rgba(0,0,0,0.25)',
   children,
 }: Props) => {
-  const { display, play, toggleDisplay } = useVideo();
-  const { clearDebounce, debounce } = useDebounce();
-
+  const { display, toggleDisplay } = useDisplayer();
   const { style } = useOpacity(display);
-
-  useEffect(() => {
-    if (!display || !play) clearDebounce();
-
-    if (display && play) debounce(toggleDisplay, 2000);
-  }, [display, play, clearDebounce, toggleDisplay, debounce]);
 
   return (
     <>
@@ -90,9 +64,7 @@ export const Displayer = ({
 };
 
 const styles = StyleSheet.create({
-  background: {
-    ...StyleSheet.absoluteFillObject,
-  },
+  background: StyleSheet.absoluteFillObject,
   container: {
     flex: 1,
     flexDirection: 'row',
