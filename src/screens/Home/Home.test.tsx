@@ -12,7 +12,7 @@ jest.mock('@react-navigation/native', () => ({
 
 describe('Home Screen', () => {
   const cases = [['Scrolled View'], ['Tabbed Views'], ['Storybook']];
-  test.each(cases)('%s can navigate to the expected screen', async (button) => {
+  test.each(cases)('%s can navigate to the expected screen', (button) => {
     (useNavigation as jest.Mock).mockReturnValue({
       navigate: jest.fn(),
     });
