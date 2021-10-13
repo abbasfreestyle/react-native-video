@@ -102,4 +102,4 @@ jobs:
           path: node_modules
           key: node-modules-${{ hashFiles('yarn.lock') }}
       - name: Test Coverage
-        run: yarn test --coverage
+        run: yarn test -w 2 --coverage
