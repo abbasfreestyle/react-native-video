@@ -1,11 +1,6 @@
-// import React from 'react';
-
 import { act, renderHook } from '@testing-library/react-hooks';
 
-// import { act as actEl, fireEvent, render } from '@testing-library/react-native';
-// import { MockVideoProvider } from '../../context';
-// import { Skip } from './Skip';
-import { SkipDirection, useAnimatedSkip, useSkip } from './Skip.hooks';
+import { SkipDirection, useAnimatedSkip, useSkip } from '../Skip.hooks';
 
 type Initial<T> = { initial: T } & T;
 
@@ -27,18 +22,11 @@ const expectInitialStyle = (style: Record<string, unknown>) => ({
   },
 });
 
-jest.useFakeTimers();
-
 describe('useSkip hook', () => {
-  // beforeAll(() => {
-  //   jest.useFakeTimers();
-  // });
+  beforeAll(() => {
+    jest.useFakeTimers();
+  });
 
-  // afterAll(() => {
-  //   jest.runOnlyPendingTimers();
-  //   // jest.useFakeTimers();
-  //   jest.useRealTimers();
-  // });
   test('should increment every time it is invoked', () => {
     const { result } = renderHook(() => useSkip('fast-forward'));
     act(() => {
@@ -98,6 +86,10 @@ describe('useSkip hook', () => {
 });
 
 describe('useAnimatedSkip hook', () => {
+  beforeAll(() => {
+    jest.useFakeTimers();
+  });
+
   test('circle should scale and fade in/out', () => {
     let tapCount = 3;
     const { rerender, result } = renderHook(() =>
@@ -189,23 +181,3 @@ describe('useAnimatedSkip hook', () => {
     },
   );
 });
-
-// describe('Behavior', () => {
-//   test.only('double tapping should animate', () => {
-//     const { getByRole, getByText } = render(<Skip direction="fast-forward" />, {
-//       wrapper: MockVideoProvider,
-//     });
-
-//     const skipArea = getByRole('button');
-
-//     actEl(() => fireEvent.press(skipArea));
-//     actEl(() => fireEvent.press(skipArea));
-
-//     // jest.advanceTimersByTime(201);
-
-//     const seconds = getByText('5 sec');
-
-//     expect(seconds).toBeTruthy();
-//   });
-//   // test.only('single tap should do nothing', () => {});
-// });
